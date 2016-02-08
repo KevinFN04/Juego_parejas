@@ -34,7 +34,7 @@ public class Mazo
     }
     
     /**
-     * Metodo para coger la primera carta del mazo y eliminarla de él.
+     * Metodo para coger la primera carta del mazo y eliminarla de el.
      */
     public Carta tomarPrimera(){
         Carta primeraCarta = cartas.get(0);
@@ -43,7 +43,7 @@ public class Mazo
     }
     
     /**
-     * Metodo para devolver las cartas que aún quedan en el mazo.
+     * Metodo para devolver las cartas que aun quedan en el mazo.
      */
     public int quedan(){
         int cartasEnMazo = cartas.size();
