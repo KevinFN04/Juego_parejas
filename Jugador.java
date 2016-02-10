@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+
+
 /**
  * Creado por Ignacio De La VIuda
  * JUGADOR
@@ -12,14 +14,17 @@ public class Jugador
 {
     private ArrayList <String> cartasEnLaMano;
     private int id;
+    private Mazo mazo;
     
     /**
      * Constructor para la clase Jugador
      */
     public Jugador(int id)
+    
     {
         this.id = id;
         cartasEnLaMano = new ArrayList <String>();
+        Mazo mazo = new Mazo();
     }
 
     /**
@@ -46,3 +51,4 @@ public class Jugador
         return cartasEnLaMano;
     }
 }
+

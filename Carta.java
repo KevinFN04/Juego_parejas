@@ -33,7 +33,7 @@ public class Carta
             cartaCompleta = "K de" + palo;
         }
         else{
-            cartaCompleta = valor + "de" + palo;
+            cartaCompleta = valor + " de" + palo;
         }
         
         return cartaCompleta;

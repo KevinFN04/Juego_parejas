@@ -13,6 +13,8 @@ public class Juego
     private Mazo mazo;
     /**
      * Constructor for objects of class Juego
+     * Si el numero de jugadores escrito no es valido ( 2-8 jugadores) 
+     * El juego se iniciara por defecto con 4 jugadores
      */
     public Juego(int numeroJugadores)
     {
@@ -21,6 +23,7 @@ public class Juego
         int players = 1;
         if (numeroJugadores > 2 && numeroJugadores < 8)
         {
+            System.out.println("El numero de jugadores en esta partida sera de " + numeroJugadores);
             while (players <= numeroJugadores){
                 this.numeroJugadores = numeroJugadores;
                 participantes.add(new Jugador(players));
@@ -29,6 +32,7 @@ public class Juego
         }
         else 
         {
+            System.out.println("El numero de jugadores no es valido. El juego se iniciara con 4 jugadores por defecto");
             while (players <= 4)
             {
                 this.numeroJugadores = 4;
@@ -38,27 +42,32 @@ public class Juego
         }
     }
     
+    /**
+     * Metodo para repartir todas las cartas posibles a cada jugador despues de haber barajado el mazo
+     */
     public void repartirCartas()
     {
         mazo.barajar();
-        int cartasMazo = 52;
-        int numCarta = 0;
-        int x = 1;
-        
-        while(numCarta > (cartasMazo/participantes.size()))
+        int cartasMazo = mazo.quedan();
+        while(cartasMazo > numeroJugadores)
         {
-            participantes.get(x).recibirCarta(mazo.tomarPrimera());
-            x=x+1;
-            numCarta = numCarta + 1;
+            for (Jugador jugador : participantes)
+            {
+                jugador.recibirCarta(mazo.tomarPrimera());
+            }
+            cartasMazo = mazo.quedan();
         }
         
     }
     
+    /**
+     * Muestra por pantalla una lista con los jugadores y las cartas que tiene cada uno en la mano
+     */
     public void mostrarCartas()
     {
         for(Jugador jugador : participantes)
         {
-            System.out.println( "El id del jugador es " + participantes.getId() + " Y tiene " + participantes.cartasQueTieneEnLaMano());
+            System.out.println( "El jugador es " + jugador.getId() + " y tiene en mano " + jugador.cartasQueTieneEnLaMano());
         }
     }
     
