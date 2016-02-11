@@ -21,7 +21,7 @@ public class Juego
         participantes = new ArrayList <Jugador>();
         mazo = new Mazo();
         int players = 1;
-        if (numeroJugadores > 2 && numeroJugadores < 8)
+        if (numeroJugadores > 2 && numeroJugadores <= 8)
         {
             System.out.println("El numero de jugadores en esta partida sera de " + numeroJugadores);
             while (players <= numeroJugadores){
@@ -49,7 +49,7 @@ public class Juego
     {
         mazo.barajar();
         int cartasMazo = mazo.quedan();
-        while(cartasMazo > numeroJugadores)
+        while(cartasMazo >= numeroJugadores)
         {
             for (Jugador jugador : participantes)
             {
@@ -67,7 +67,7 @@ public class Juego
     {
         for(Jugador jugador : participantes)
         {
-            System.out.println( "El jugador es " + jugador.getId() + " y tiene en mano " + jugador.cartasQueTieneEnLaMano());
+            System.out.println( "El jugador es " + jugador.getId() + " y tiene en mano " + jugador.cartasQueTieneEnLaMano() + ".");
         }
     }
     
